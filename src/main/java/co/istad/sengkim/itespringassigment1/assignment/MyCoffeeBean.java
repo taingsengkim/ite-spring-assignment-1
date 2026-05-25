@@ -3,14 +3,15 @@ package co.istad.sengkim.itespringassigment1.assignment;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
 @Configuration
 public class MyCoffeeBean {
     @Bean
-    public List<Coffee> allBeans(List<Coffee> beans){
-        return beans;
+    public List<Coffee> allBeans(){
+        return new ArrayList<>(List.of(iceLatte(),vnCoffee(),mochaCoffee()));
     }
 
     @Bean

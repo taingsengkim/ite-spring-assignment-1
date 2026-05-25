@@ -13,36 +13,13 @@ import java.util.Map;
 @RequestMapping("/api")
 public class CoffeeController {
     private final MyCoffeeBean myCoffeeBean;
-    private Coffee bean1;
-    private  Coffee bean2;
-    private  Coffee bean3;
 
-
-    //setter
-//    @Autowired
-//    public void setBean1(@Qualifier("iceLatte") Coffee bean1){
-//        this.bean1 = bean1;
-//    }
-//    @Autowired
-//    public void setBean2(@Qualifier("vnCoffee") Coffee bean2){
-//        this.bean2 = bean2;
-//    }
-//    @Autowired
-//    public void setBean3(@Qualifier("mochaCoffee") Coffee bean3){
-//        this.bean3 = bean3;
-//    }
-    public CoffeeController(MyCoffeeBean myCoffeeBean,
-                            @Qualifier("iceLatte")  Coffee bean1,
-                            @Qualifier("vnCoffee")  Coffee bean2,
-                            @Qualifier("mochaCoffee")  Coffee bean3
-           ){
+    public CoffeeController(MyCoffeeBean myCoffeeBean){
         this.myCoffeeBean = myCoffeeBean;
-        this.bean1 = bean1;
-        this.bean2 = bean2;
-        this.bean3 = bean3;
+
     }
     @GetMapping("/coffees")
     public Map<String,Object> getCoffees(){
-        return Map.of("coffees",myCoffeeBean.allBeans(List.of(bean1,bean2,bean3)));
+        return Map.of("coffees",myCoffeeBean.allBeans());
     }
 }

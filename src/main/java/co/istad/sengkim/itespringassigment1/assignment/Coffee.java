@@ -5,6 +5,7 @@ import lombok.Setter;import java.util.UUID;
 
 @Setter
 @Getter
+
 public class Coffee {
     private String name;
     private UUID code;

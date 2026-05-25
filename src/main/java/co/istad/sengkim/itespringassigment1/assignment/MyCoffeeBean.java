@@ -9,12 +9,12 @@ import java.util.UUID;
 @Configuration
 public class MyCoffeeBean {
     @Bean
-    public List<Coffee> allBeans(){
-        return List.of(iceLatte(),vnCoffee(),mochaCoffee());
+    public List<Coffee> allBeans(List<Coffee> beans){
+        return beans;
     }
 
     @Bean
-    public Coffee iceLatte(){
+        public Coffee iceLatte(){
         Coffee coffee = new Coffee();
         coffee.setName("Ice Latte");
         coffee.setCode(UUID.randomUUID());

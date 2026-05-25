@@ -17,21 +17,29 @@ public class CoffeeController {
     private  Coffee bean2;
     private  Coffee bean3;
 
-    @Autowired
-    public void setBean1(@Qualifier("iceLatte") Coffee bean1){
-        this.bean1 = bean1;
-    }
-    @Autowired
-    public void setBean2(@Qualifier("vnCoffee") Coffee bean2){
-        this.bean2 = bean2;
-    }
-    @Autowired
-    public void setBean3(@Qualifier("mochaCoffee") Coffee bean3){
-        this.bean3 = bean3;
-    }
-    public CoffeeController(MyCoffeeBean myCoffeeBean
+
+    //setter
+//    @Autowired
+//    public void setBean1(@Qualifier("iceLatte") Coffee bean1){
+//        this.bean1 = bean1;
+//    }
+//    @Autowired
+//    public void setBean2(@Qualifier("vnCoffee") Coffee bean2){
+//        this.bean2 = bean2;
+//    }
+//    @Autowired
+//    public void setBean3(@Qualifier("mochaCoffee") Coffee bean3){
+//        this.bean3 = bean3;
+//    }
+    public CoffeeController(MyCoffeeBean myCoffeeBean,
+                            @Qualifier("iceLatte")  Coffee bean1,
+                            @Qualifier("vnCoffee")  Coffee bean2,
+                            @Qualifier("mochaCoffee")  Coffee bean3
            ){
         this.myCoffeeBean = myCoffeeBean;
+        this.bean1 = bean1;
+        this.bean2 = bean2;
+        this.bean3 = bean3;
     }
     @GetMapping("/coffees")
     public Map<String,Object> getCoffees(){
